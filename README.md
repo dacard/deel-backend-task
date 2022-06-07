@@ -3,7 +3,7 @@
 ## ANSWERS
 
 ### Requirements
-- Node 14 or newer
+- Node 16 LTS or newer
 - Docker (optional)
 - curl (optional)
 
@@ -19,10 +19,10 @@ cd deel-backend-task
 ```
 3. Setup the environment
 ```sh
-docker pull node:14 # download the Node 14 image
-docker run -it --rm -v `pwd`:/api -w /api -p 3001:3001 node:14 npm install # install dependecies
-docker run -it --rm -v `pwd`:/api -w /api -p 3001:3001 node:14 npm run seed # seed database
-docker run -it --rm -v `pwd`:/api -w /api -p 3001:3001 node:14 npm start # run the server
+docker pull node:16 # download the Node 14 image
+docker run -it --rm -v `pwd`:/api -w /api -p 3001:3001 node:16 npm install # install dependecies
+docker run -it --rm -v `pwd`:/api -w /api -p 3001:3001 node:16 npm run seed # seed database
+docker run -it --rm -v `pwd`:/api -w /api -p 3001:3001 node:16 npm start # run the server
 ```
 
 ### HTTP Requests to check the answers
