@@ -1,7 +1,74 @@
 # DEEL BACKEND TASK
 
-  
+## ANSWERS
 
+### Requirements
+- Node 14 or newer
+- Docker (optional)
+- curl (optional)
+
+### Setup environment
+To run the solution, I used docker. Following are the commands for preparing the environment.
+1. Clone this repository  
+```sh
+gh repo clone dacard/deel-backend-task # with Github cli
+```
+2. Navigate to folder
+```sh
+cd deel-backend-task
+```
+3. Setup the environment
+```sh
+docker pull node:14 # download the Node 14 image
+docker run -it --rm -v `pwd`:/api -w /api -p 3001:3001 node:14 npm install # install dependecies
+docker run -it --rm -v `pwd`:/api -w /api -p 3001:3001 node:14 npm run seed # seed database
+docker run -it --rm -v `pwd`:/api -w /api -p 3001:3001 node:14 npm start # run the server
+```
+
+### HTTP Requests to check the answers
+Following are the HTTP requests I've using to verify the answers:
+
+**Exercise 1:**
+```sh
+curl --location --request GET 'localhost:3001/contracts/1' \
+--header 'profile_id: 1'
+```
+**Exercise 2:**
+```sh
+curl --location --request GET 'localhost:3001/contracts' \
+--header 'profile_id: 1'
+```
+**Exercise 3:**
+```sh
+curl --location --request GET 'localhost:3001/jobs/unpaid' \
+--header 'profile_id: 1'
+```
+**Exercise 4:**
+```sh
+curl --location --request GET 'localhost:3001/jobs/1/pay' \
+--header 'profile_id: 1'
+```
+**Exercise 5:**
+```sh
+curl --location --request POST 'localhost:3001/balances/deposit/2' \
+--header 'profile_id: 1' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "amount" : 2000
+}'
+```
+**Exercise 6:**
+```sh
+curl --location --request GET 'localhost:3001/admin/best-profession?start=1597518686&end=1597605086' \
+--header 'profile_id: 1'
+```
+**Exercise 7:**
+```sh
+curl --location --request GET 'localhost:3001/admin/best-clients?start=1597518686&end=1597605086&limit=2' \
+--header 'profile_id: 1'
+```
+  
+## EXERCISE
 💫 Welcome! 🎉
 
 
